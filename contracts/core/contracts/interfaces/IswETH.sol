@@ -14,7 +14,7 @@ interface IswETH is IERC20Upgradeable {
 
   /**
    * @dev Error thrown when attempting to reprice with zero SwETH supply.
-   */
+   */ 
   error CannotRepriceWithZeroSwETHSupply();
 
   /**
@@ -274,7 +274,7 @@ interface IswETH is IERC20Upgradeable {
   /**
   //  * TODO: Reword
    * @dev This method reprices the swETH -> ETH rate, this will be called via an offchain service on a regular interval, likely ~1 day. The swETH total supply is passed as an argument to avoid a potential race conditions between the off-chain reserve calculations and the on-chain repricing
-   * @dev This method also mints a percentage of swETH as rewards to be claimed by NO's and the swell treasury. The formula for determining the amount of swETH to mint is the following: swETHToMint = (swETHSupply * newETHRewards * feeRate) / (preRewardETHReserves - newETHRewards * feeRate + newETHRewards)
+   * @dev This method also mints a percentage of swETH as rewards to be claimed by Node Operators and the swell treasury. The formula for determining the amount of swETH to mint is the following: swETHToMint = (swETHSupply * newETHRewards * feeRate) / (preRewardETHReserves - newETHRewards * feeRate + newETHRewards)
    * @dev The formula is quite complicated because it needs to factor in the updated exchange rate whilst it calculates the amount of swETH rewards to mint. This ensures the rewards aren't double-minted and are backed by ETH.
    * @param _preRewardETHReserves The PoR value exclusive of the new ETH rewards earned
    * @param _newETHRewards The total amount of new ETH earnt over the period.
